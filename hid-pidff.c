@@ -57,9 +57,9 @@ the only field in that report */
 #define PID_TRIGGER_BUTTON	3
 #define PID_TRIGGER_REPEAT_INT	4
 #define PID_DIRECTION_ENABLE	5
-#define PID_START_DELAY		6
+//#define PID_START_DELAY		6
 static const u8 pidff_set_effect[] = {
-	0x22, 0x50, 0x52, 0x53, 0x54, 0x56, 0xa7
+	0x22, 0x50, 0x52, 0x53, 0x54, 0x56/*, 0xa7*/
 };
 
 #define PID_ATTACK_LEVEL	1
@@ -312,7 +312,7 @@ static void pidff_set_effect_report(struct pidff_device *pidff,
 	pidff->effect_direction->value[0] =
 		pidff_rescale(effect->direction, 0xffff,
 				pidff->effect_direction);
-	pidff->set_effect[PID_START_DELAY].value[0] = effect->replay.delay;
+	//pidff->set_effect[PID_START_DELAY].value[0] = effect->replay.delay;
 
 	hid_hw_request(pidff->hid, pidff->reports[PID_SET_EFFECT],
 			HID_REQ_SET_REPORT);
