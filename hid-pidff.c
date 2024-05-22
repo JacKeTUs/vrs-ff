@@ -375,7 +375,7 @@ static void pidff_set_condition_report(struct pidff_device *pidff,
 		pidff->block_load[PID_EFFECT_BLOCK_INDEX].value[0];
 
 	for (i = 0; i < 2; i++) {
-		pidff->set_condition[PID_PARAM_BLOCK_OFFSET].value[0] = i;
+		//pidff->set_condition[PID_PARAM_BLOCK_OFFSET].value[0] = i;
 		pidff_set_signed(&pidff->set_condition[PID_CP_OFFSET],
 				 effect->u.condition[i].center);
 		pidff_set_signed(&pidff->set_condition[PID_POS_COEFFICIENT],
@@ -1121,7 +1121,7 @@ static int pidff_init_fields(struct pidff_device *pidff, struct input_dev *dev)
 	     test_bit(FF_DAMPER, dev->ffbit) ||
 	     test_bit(FF_FRICTION, dev->ffbit) ||
 	     test_bit(FF_INERTIA, dev->ffbit)) &&
-	    PIDFF_FIND_FIELDS(set_condition, PID_SET_CONDITION, 1)) {
+	    PIDFF_FIND_FIELDS(set_condition, PID_SET_CONDITION, 0)) {
 		hid_warn(pidff->hid, "unknown condition effect layout\n");
 		clear_bit(FF_SPRING, dev->ffbit);
 		clear_bit(FF_DAMPER, dev->ffbit);
