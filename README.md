@@ -47,7 +47,7 @@ You can do it through VRS with Wine. You need to tweak Wine prefix for them.
 
 That soft uses hidraw to set up a base. You need to create `udev` rule for allow access to hidraw device:
 ```
-echo 'KERNEL=="hidraw*", ATTRS{idVendor}=="0483", MODE="a355", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/11-vrs.rules
+echo 'KERNEL=="hidraw*", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="a355", MODE="0666", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/11-vrs.rules
 
 udevadm control --reload-rules && udevadm trigger
 ```
