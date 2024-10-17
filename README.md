@@ -1,3 +1,8 @@
+# IMPORTANT UPDATE
+
+## This repository was the first attempt of making the VRS DFP wheelbase working. For user convenience i created more universal patch for pidff, which can support not only VRS DFP, but Moza and Cammus as well (and may be more later). Please, check it out: https://github.com/JacKeTUs/universal-pidff
+
+
 # Force feedback support for VRS steering wheels
 
 Linux module driver for VRS driving wheels.
